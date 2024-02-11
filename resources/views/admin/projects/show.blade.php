@@ -6,4 +6,5 @@
     <h3>{{ $project->title }}</h3>
     <p>{{ $project->description }}</p>
     <h6>{{ $project->year }}</h6>
+    <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-warning">Modifica</a>
 @endsection
