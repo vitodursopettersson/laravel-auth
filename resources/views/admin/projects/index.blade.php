@@ -5,6 +5,7 @@
     <h1>Lista progetti:</h1>
     @foreach ($projects as $project)
         <h3><a href="{{ route('admin.projects.show', $project) }}">{{ $project->title }}</a></h3>
+        <img src="{{ asset('storage/' . $project->thumb) }}" alt="">
         <p>{{ $project->description }}</p>
         <h6>{{ $project->year }}</h6>
     @endforeach

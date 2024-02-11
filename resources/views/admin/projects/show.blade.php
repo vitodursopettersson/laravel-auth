@@ -4,6 +4,7 @@
     <h1><a href="{{ route('admin.projects.index') }}">Torna indietro</a></h1>
     <h2>Progetto:</h2>
     <h3>{{ $project->title }}</h3>
+    <img src="{{ asset('storage/' . $project->thumb) }}" alt="">
     <p>{{ $project->description }}</p>
     <h6>{{ $project->year }}</h6>
     <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-warning">Modifica</a>

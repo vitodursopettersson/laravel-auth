@@ -15,6 +15,10 @@
             @enderror
         </div>
         <div class="mb-3">
+            <label for="thumb" class="form-label">Immagine progetto</label>
+            <img src="{{ asset('storage/' . $project->thumb) }}" alt="">
+        </div>
+        <div class="mb-3">
             <label for="description" class="form-label">Descrizione</label>
             <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="3"
                 name="description">{{ old('description', $project->description) }}</textarea>

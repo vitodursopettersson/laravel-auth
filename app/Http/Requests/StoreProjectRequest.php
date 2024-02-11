@@ -24,6 +24,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'title' => 'required|unique:projects,title',
             'description' => 'required',
+            'thumb' => 'nullable|image',
             'year' => 'required|date_format:Y',
         ];
     }
@@ -33,6 +34,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'required' => 'Campo obbligatorio.',
             'title.unique' => 'Il titolo del progetto deve essere unico.',
+            'thumb.image' => 'Formato file non valido.',
             'year.date_format' => 'Formato non valido. (YYYY)'
         ];
     }
