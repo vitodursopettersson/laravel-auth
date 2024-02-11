@@ -41,7 +41,7 @@ class ProjectController extends Controller
         $newProject->year = $data['year'];
         $newProject->save();
 
-        return redirect()->route('admin.projects.show', $newProject);
+        return redirect()->route('admin.projects.show', $newProject)->with('createMessage', 'Post creato correttamente.');
     }
 
     /**
@@ -68,7 +68,7 @@ class ProjectController extends Controller
         $data = $request->all();
         $project->update($data);
 
-        return redirect()->route('admin.projects.show', $project);
+        return redirect()->route('admin.projects.index')->with('updateMessage', 'Post aggiornato correttamente.');
     }
 
     /**
