@@ -7,4 +7,9 @@
     <p>{{ $project->description }}</p>
     <h6>{{ $project->year }}</h6>
     <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-warning">Modifica</a>
+    <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <input type="submit" value="Elimina" class="btn btn-danger">
+    </form>
 @endsection
