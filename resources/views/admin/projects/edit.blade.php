@@ -1,13 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
-    <form action="{{ route('admin.projects.update', $project->id) }}" method="POST">
+    <form action="{{ route('admin.projects.update', $project) }}" method="POST">
         @method('PUT')
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Titolo progetto</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
                 value="{{ old('title', $project->title) }}">
+            <div id="emailHelp" class="form-text">Lo slug non verrà aggiornato.({{ $project->slug }})</div>
+
             @error('title')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -35,11 +36,12 @@ class ProjectController extends Controller
 
         $newProject = new Project();
         $newProject->title = $data['title'];
+        $newProject->slug = Str::of($newProject->title)->slug('-');
         $newProject->description = $data['description'];
         $newProject->year = $data['year'];
         $newProject->save();
 
-        return redirect()->route('admin.projects.show', $newProject->id);
+        return redirect()->route('admin.projects.show', $newProject);
     }
 
     /**
@@ -66,7 +68,7 @@ class ProjectController extends Controller
         $data = $request->all();
         $project->update($data);
 
-        return redirect()->route('admin.projects.show', $project->id);
+        return redirect()->route('admin.projects.show', $project);
     }
 
     /**
